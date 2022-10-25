@@ -10,14 +10,12 @@ namespace Zelda.Repositories
         {
             DbContext = dbContext;
         }
-
-        public abstract T Create(T entity);
-        public abstract T Delete(T entity);
-        public abstract T Find(K id);
-        public abstract IQueryable<T> FindAll();
-        public abstract IQueryable<T> FindByCondition(Expression<Func<T, bool>> expression);
-        public abstract T Update(T entity);
-
+        public abstract Task<T> Find(K id);
+        public abstract Task<IQueryable<T>> FindAll();
+        public abstract Task<IQueryable<T>> FindByCondition(Expression<Func<T, bool>> expression);
+        public abstract Task Create(T entity);
+        public abstract Task Delete(T entity);
+        public abstract Task Update(T entity);
         public async Task SaveAsync() => await DbContext.SaveChangesAsync();
     }
 }
