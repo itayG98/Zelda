@@ -5,8 +5,7 @@ namespace Zelda.Models
     public class Address : ICloneable
     {
         [Key]
-        [MinLength(7)]
-        public string AddressID { get; set; }
+        public int AddressID { get; set; }
 
         [Required]
         [MinLength(3)]

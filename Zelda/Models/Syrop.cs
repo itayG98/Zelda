@@ -5,8 +5,7 @@ namespace Zelda.Models
     public class Syrop : ICloneable
     {
         [Key]
-        [MinLength(7)]
-        public string SyropID { get; set; }
+        public int SyropID { get; set; }
         [Required]
         public string? Name { get; set; }
         [Required]

@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Zelda.Models;
 
-internal class ZeldaContext :  DbContext
+public class ZeldaContext :  DbContext
 {
 
     public ZeldaContext(DbContextOptions<ZeldaContext> options) : base(options)

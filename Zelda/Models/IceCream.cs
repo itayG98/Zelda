@@ -6,7 +6,7 @@ namespace Zelda.Models
     {
         [Key]
         [MinLength(7)]
-        public string IceCreamID { get; set; }
+        public int IceCreamID { get; set; }
         [Required]
         public string? Name { get; set; }
         [Required]
