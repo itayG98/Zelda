@@ -19,4 +19,9 @@ app.UseEndpoints(endpoints =>
     endpoints.MapDefaultControllerRoute();
 });
 
+app.Run(async (context) =>
+{
+    await context.Response.WriteAsync("Sorry cant serve your request");
+});
+
 app.Run();

@@ -2,10 +2,11 @@
 
 namespace Zelda.Models
 {
-    public class Syrop
+    public class Syrop : ICloneable
     {
         [Key]
-        public int SyropID { get; set; }
+        [MinLength(7)]
+        public string SyropID { get; set; }
         [Required]
         public string? Name { get; set; }
         [Required]
@@ -13,16 +14,7 @@ namespace Zelda.Models
         [Required]
         public string? imgSrc { get; set; }
 
-        public object Clone()
-        {
-            Syrop syrop = new()
-            {
-                SyropID = SyropID,
-                Name = Name,
-                Price = Price,
-                imgSrc = imgSrc.ToString(),
-            };
-            return syrop;
-        }
+        public object Clone() => MemberwiseClone();
+
     }
 }
