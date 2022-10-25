@@ -11,40 +11,21 @@ namespace Zelda.Repositories
         }
 
         public override async Task Create(IceCream entity)
-        {
-            await DbContext.IceCreams.AddAsync(entity);
-            await SaveAsync();
-        }
+          =>  await DbContext.IceCreams.AddAsync(entity);
 
         public override async Task Delete(IceCream entity)
-        {
-            if (entity != default)
-            {
-                var del = new Task(() => DbContext.IceCreams.Remove(entity));
-                del.Start();
-                Task save = del.ContinueWith(_ => SaveAsync());
-            }
-        }
+         =>   DbContext.IceCreams.Remove(entity);
 
         public override async Task<IceCream> Find(int id)
-        {
-            return await DbContext.IceCreams.FindAsync(id);
-        }
+         => await DbContext.IceCreams.FindAsync(id);
 
         public override async Task<IEnumerable<IceCream>> FindAll()
-        {
-            return await DbContext.IceCreams.ToListAsync();
-        }
+         => await DbContext.IceCreams.ToListAsync();
 
         public override async Task<IEnumerable<IceCream>> FindByCondition(Expression<Func<IceCream, bool>> expression)
-        {
-            return await DbContext.IceCreams.Where(expression).ToListAsync();
-            
-        }
+        => await DbContext.IceCreams.Where(expression).ToListAsync();
 
         public override async Task Update(IceCream entity)
-        {
-            DbContext.IceCreams.Update(entity);
-        }
+        => DbContext.IceCreams.Update(entity);
     }
 }
