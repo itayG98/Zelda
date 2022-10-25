@@ -12,8 +12,8 @@ namespace Zelda.Repositories
     public interface IRepositoryBase<T,K,C> where T : class where C : DbContext
     {
         //IQueryable<T> GetAllSortedBy(IComparer<T> comp);
-        protected Task<IQueryable<T>> FindByCondition(Expression<Func<T, bool>> expression);
-        protected Task<IQueryable<T>> FindAll();
+        protected Task<IEnumerable<T>> FindByCondition(Expression<Func<T, bool>> expression);
+        protected Task<IEnumerable<T>> FindAll();
         protected Task<T> Find(K id);
         protected Task Create(T entity);
         protected Task Update(T entity);

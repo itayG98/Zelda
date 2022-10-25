@@ -11,8 +11,8 @@ namespace Zelda.Repositories
             DbContext = dbContext;
         }
         public abstract Task<T> Find(K id);
-        public abstract Task<IQueryable<T>> FindAll();
-        public abstract Task<IQueryable<T>> FindByCondition(Expression<Func<T, bool>> expression);
+        public abstract Task<IEnumerable<T>> FindAll();
+        public abstract Task<IEnumerable<T>> FindByCondition(Expression<Func<T, bool>> expression);
         public abstract Task Create(T entity);
         public abstract Task Delete(T entity);
         public abstract Task Update(T entity);
