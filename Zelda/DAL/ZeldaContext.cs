@@ -1,12 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Zelda.Models;
 
-public class ZeldaContext :  DbContext
+public class ZeldaContext :  DbContext  
 {
 
     public ZeldaContext(DbContextOptions<ZeldaContext> options) : base(options)
     {
-       //Database.EnsureCreated();
+
     }
 
     public DbSet<IceCream> IceCreams { get; set; }

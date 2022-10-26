@@ -1,4 +1,6 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Internal;
 using Zelda.Models;
 using Zelda.Repositories;
 
@@ -10,10 +12,11 @@ builder.Services.AddDbContext<ZeldaContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionString"));
 }
 );
+
 builder.Services.AddScoped<IRepositoryBase<IceCream, int, ZeldaContext>, IceCreamRepository>();
 builder.Services.AddScoped<IRepositoryBase<Syrop, int, ZeldaContext>, SyropRepository>();
-builder.Services.AddScoped<IRepositoryBase<Costumer, string, ZeldaContext>, CustomerRepository>();
 builder.Services.AddScoped<IRepositoryBase<Address, int, ZeldaContext>, AddressRepository>();
+builder.Services.AddScoped<IRepositoryBase<Costumer, string, ZeldaContext>, CustomerRepository>();
 builder.Services.AddScoped<IRepositoryBase<Order, Guid, ZeldaContext>, OrdersRepository>();
 builder.Services.AddControllersWithViews();
 var app = builder.Build();

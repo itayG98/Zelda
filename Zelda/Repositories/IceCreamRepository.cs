@@ -2,7 +2,7 @@
 
 namespace Zelda.Repositories
 {
-    public class IceCreamRepository : RepositoryBase<IceCream, int, ZeldaContext>
+    public class IceCreamRepository : ZeldaRepositoryBase<IceCream, int>
     {
         public IceCreamRepository(ZeldaContext dbContext) : base(dbContext)
         {

@@ -2,7 +2,7 @@
 
 namespace Zelda.Repositories
 {
-    public class SyropRepository : RepositoryBase<Syrop, int, ZeldaContext>
+    public class SyropRepository : ZeldaRepositoryBase<Syrop, int>
     {
         public SyropRepository(ZeldaContext dbContext) : base(dbContext)
         {

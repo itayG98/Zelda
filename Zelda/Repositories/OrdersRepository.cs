@@ -2,7 +2,7 @@
 
 namespace Zelda.Repositories
 {
-    public class OrdersRepository : RepositoryBase<Order, Guid, ZeldaContext>
+    public class OrdersRepository : ZeldaRepositoryBase<Order, Guid>
     {
         public OrdersRepository(ZeldaContext dbContext) : base(dbContext)
         {

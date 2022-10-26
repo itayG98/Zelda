@@ -2,7 +2,7 @@
 
 namespace Zelda.Repositories
 {
-    public class AddressRepository : RepositoryBase<Address, int, ZeldaContext>
+    public class AddressRepository : ZeldaRepositoryBase<Address, int>
     {
         public AddressRepository(ZeldaContext dbContext) : base(dbContext)
         {

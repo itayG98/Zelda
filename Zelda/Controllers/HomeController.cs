@@ -10,7 +10,7 @@ namespace Zelda.Controllers
         public HomeController(IceCreamRepository repo)
         {
             repository = repo;
-            Init();
+            //Init();
         }
 
         private async Task Init() => await repository.Create(new IceCream() { Name = "Chocolate", Price = 10 });
