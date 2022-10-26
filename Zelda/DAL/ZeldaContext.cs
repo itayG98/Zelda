@@ -6,7 +6,7 @@ public class ZeldaContext :  DbContext
 
     public ZeldaContext(DbContextOptions<ZeldaContext> options) : base(options)
     {
-
+       //Database.EnsureCreated();
     }
 
     public DbSet<IceCream> IceCreams { get; set; }

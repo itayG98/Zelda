@@ -12,7 +12,7 @@ namespace Zelda.Models
         [Required]
         public double Price { get; set; } = 3;
         [Required]
-        public string? imgSrc { get; set; }
+        public string? ImgSrc { get; set; }
 
         public object Clone() => MemberwiseClone();
         

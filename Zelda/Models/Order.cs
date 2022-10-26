@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Runtime.InteropServices;
 
 namespace Zelda.Models
@@ -11,14 +12,20 @@ namespace Zelda.Models
         [Required]
         [MaxLength(9)]
         public string CostumerID { get; set; }
+        [Required]
+        [ForeignKey("CostumerID")]
+        public Costumer Costumer { get; set; }
 
         [Required]
-        public IceCream? OrderedIceCream { get; set; }    
+        public int? OrderedIceCreamID { get; set; }
+        [Required]
+        [ForeignKey("OrderedIceCreamID")]
+        public IceCream? OrderedIceCream { get; set; }
 
         public Syrop? ToopingSyrop { get; set; }
 
         [StringLength(10)]
-        public string AdditionalPhoneNumber { get; set; }
+        public string? AdditionalPhoneNumber { get; set; }
 
         public int? AlternativeAddrresID { get; set; }
 

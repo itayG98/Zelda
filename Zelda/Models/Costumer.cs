@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Zelda.Models
 {
@@ -25,5 +26,8 @@ namespace Zelda.Models
 
         [Required]
         public int AdrressID { get; set; }
+        [ForeignKey("AdrressID")]
+        [Required]
+        public Address? Adrress { get; set; }
     }
 }
