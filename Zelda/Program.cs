@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
 using Zelda.Models;
 using Zelda.Repositories;
 
@@ -11,12 +12,15 @@ builder.Services.AddDbContext<ZeldaContext>(options =>
 }
 );
 
-
+//Possible correct registeration 1 : WRONG
 /*
  * builder.Services.AddDbContextFactory<ZeldaContext>(opt =>
     opt.UseSqlServer($"Data Source={nameof(ZeldaContext.Database)}.db")
     .EnableSensitiveDataLogging());
 */
+//Possible correct registeration 2 : WRONG
+//builder.Services.AddScoped<IDbContextDependencies, ZeldaContext>();
+
 
 builder.Services.AddScoped<IRepositoryBase<IceCream, int, ZeldaContext>, IceCreamRepository>();
 builder.Services.AddScoped<IRepositoryBase<Syrop, int, ZeldaContext>, SyropRepository>();

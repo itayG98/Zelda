@@ -12,8 +12,8 @@ namespace Zelda.Repositories
     /// <typeparam name="TDBContext">A class which inherit from EntityFrameWorkCore.DBContext</typeparam>
     public abstract class RepositoryBase<T, K, TDBContext> : IRepositoryBase<T, K, TDBContext> where T : class where TDBContext : DbContext
     {
-        protected TDBContext DbContext { get; set; }
-        protected RepositoryBase(TDBContext dbContext)
+        protected  TDBContext DbContext { get; set; }
+        public RepositoryBase(TDBContext dbContext)
         {
             DbContext = dbContext;
         }
