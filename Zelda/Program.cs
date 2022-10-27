@@ -4,31 +4,36 @@ using Zelda.Models;
 using Zelda.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
-var conn = builder.Configuration.GetConnectionString("DefaultConnectionString");
 // Add services to the container.
+
+builder.Services.AddTransient<IRepositoryBase<IceCream, int, ZeldaContext>, IceCreamRepository>();
+builder.Services.AddTransient<IRepositoryBase<Syrop, int, ZeldaContext>, SyropRepository>();
+builder.Services.AddTransient<IRepositoryBase<Address, int, ZeldaContext>, AddressRepository>();
+builder.Services.AddTransient<IRepositoryBase<Costumer, string, ZeldaContext>, CustomerRepository>();
+builder.Services.AddTransient<IRepositoryBase<Order, Guid, ZeldaContext>, OrdersRepository>();
+
 builder.Services.AddDbContext<ZeldaContext>(options =>
 {
-    options.UseSqlServer(conn);
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionString"));
 }
 );
+builder.Services.AddControllersWithViews();
 
 //Possible correct registeration 1 : WRONG
-/*
- * builder.Services.AddDbContextFactory<ZeldaContext>(opt =>
-    opt.UseSqlServer($"Data Source={nameof(ZeldaContext.Database)}.db")
-    .EnableSensitiveDataLogging());
-*/
+//builder.Services.AddTransient<IDbContextFactory<ZeldaContext>, DbContextFactory<ZeldaContext>>();
+
 //Possible correct registeration 2 : WRONG
-//builder.Services.AddScoped<IDbContextDependencies, ZeldaContext>();
+//builder.Services.AddTransient<IDbContextDependencies, ZeldaContext>();
 
 
-builder.Services.AddScoped<IRepositoryBase<IceCream, int, ZeldaContext>, IceCreamRepository>();
-builder.Services.AddScoped<IRepositoryBase<Syrop, int, ZeldaContext>, SyropRepository>();
-builder.Services.AddScoped<IRepositoryBase<Address, int, ZeldaContext>, AddressRepository>();
-builder.Services.AddScoped<IRepositoryBase<Costumer, string, ZeldaContext>, CustomerRepository>();
-builder.Services.AddScoped<IRepositoryBase<Order, Guid, ZeldaContext>, OrdersRepository>();
-builder.Services.AddControllersWithViews();
+
 var app = builder.Build();
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<ZeldaContext>();
+    context.Database.EnsureCreated();
+}
+
 
 app.UseRouting();
 
