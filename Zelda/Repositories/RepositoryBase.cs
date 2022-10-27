@@ -18,7 +18,6 @@ namespace Zelda.Repositories
             DbContext = dbContext;
         }
 
-        
         public async Task SaveAsync() => await DbContext.SaveChangesAsync();
         public async Task Create(T entity)
         {
