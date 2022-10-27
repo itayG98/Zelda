@@ -9,11 +9,11 @@ namespace Zelda.Repositories
     /// </summary>
     /// <typeparam name="T">A type of object which has a DBSet <T> in the requested DBContext</typeparam>
     /// <typeparam name="K">The <T> primary key type</typeparam>
-    /// <typeparam name="C">A class which inherit from EntityFrameWorkCore.DBContext</typeparam>
-    public abstract class RepositoryBase<T, K, C> : IRepositoryBase<T, K, C> where T : class where C : DbContext
+    /// <typeparam name="TDBContext">A class which inherit from EntityFrameWorkCore.DBContext</typeparam>
+    public abstract class RepositoryBase<T, K, TDBContext> : IRepositoryBase<T, K, TDBContext> where T : class where TDBContext : DbContext
     {
-        protected C DbContext { get; set; }
-        protected RepositoryBase(C dbContext)
+        protected TDBContext DbContext { get; set; }
+        protected RepositoryBase(TDBContext dbContext)
         {
             DbContext = dbContext;
         }

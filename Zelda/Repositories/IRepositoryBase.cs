@@ -9,7 +9,7 @@ namespace Zelda.Repositories
     /// <typeparam name="T"></typeparam>
     /// <typeparam name="K">Key type param of T</typeparam>
     /// <typeparam name="c">Key type param of the DBContext</typeparam>
-    public interface IRepositoryBase<T,K,C> where T : class where C : DbContext
+    public interface IRepositoryBase<T,K,TDBContext> where T : class where  TDBContext : DbContext
     {
         //IQueryable<T> GetAllSortedBy(IComparer<T> comp);
         protected Task<IEnumerable<T>> FindByCondition(Expression<Func<T, bool>> expression);
