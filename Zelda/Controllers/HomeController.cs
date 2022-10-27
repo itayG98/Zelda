@@ -18,7 +18,7 @@ namespace Zelda.Controllers
         {
             StringBuilder sb = new StringBuilder();
             repository.FindAll().Result.ToList().ForEach(x => sb.AppendLine(x.ToString()));
-            return $"The Ice-Creams are {sb}";
+            return $"The Ice-Creams are :\n{sb}";
         }
     }
 }

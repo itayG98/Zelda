@@ -18,7 +18,7 @@ namespace Zelda.Models
 
         public override string ToString()
         {
-            return $"{Name} Ice-Cream costs {Price:d}"; 
+            return $"{Name} Ice-Cream costs {Price:c}"; 
         }
 
     }
