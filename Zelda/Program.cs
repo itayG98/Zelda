@@ -20,12 +20,6 @@ builder.Services.AddDbContext<ZeldaContext>(options =>
 );
 builder.Services.AddControllersWithViews();
 
-//Possible correct registeration 1 : WRONG
-//builder.Services.AddTransient<IDbContextFactory<ZeldaContext>, DbContextFactory<ZeldaContext>>();
-
-//Possible correct registeration 2 : WRONG
-//builder.Services.AddTransient<IDbContextDependencies, ZeldaContext>();
-
 var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
