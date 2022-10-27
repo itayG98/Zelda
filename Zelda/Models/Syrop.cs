@@ -15,5 +15,10 @@ namespace Zelda.Models
 
         public object Clone() => MemberwiseClone();
 
+        public override string ToString()
+        {
+            return $"{Name} Syrop costs {Price:c}";
+        }
+
     }
 }
