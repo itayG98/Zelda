@@ -22,7 +22,16 @@ namespace Zelda.Models
         [ForeignKey("OrderedIceCreamID")]
         public IceCream? OrderedIceCream { get; set; }
 
-        public Syrop? ToopingSyrop { get; set; }
+        [Required]
+        public int? ToopingSyropID { get; set; }
+        [Required]
+        [ForeignKey("ToopingSyropID")]
+        public Syrop? ToopingSyrop { get; set; } 
+        [Required]
+        public int? ToppingID { get; set; }
+        [Required]
+        [ForeignKey("ToppingID")]
+        public Topping? Top { get; set; }
 
         [StringLength(10)]
         public string? AdditionalPhoneNumber { get; set; }

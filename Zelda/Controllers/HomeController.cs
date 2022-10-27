@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Text;
 using Zelda.Models;
 using Zelda.Repositories;
 
@@ -10,16 +11,14 @@ namespace Zelda.Controllers
         public HomeController(IceCreamRepository repo)
         {
             repository = repo;
-            //Init();
         }
 
-        //Try seedeing data to validate repository works fine
-        //private async Task Init() => await repository.Create(new IceCream() { Name = "Chocolate", Price = 10 });
 
-
-        public IActionResult Index()
+        public string Index()
         {
-            return View();
+            StringBuilder sb = new StringBuilder();
+            repository.FindAll().Result.ToList().ForEach(x => sb.AppendLine(x.ToString()));
+            return $"The Ice-Creams are {sb}";
         }
     }
 }
