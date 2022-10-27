@@ -13,7 +13,8 @@ namespace Zelda.Controllers
             //Init();
         }
 
-        private async Task Init() => await repository.Create(new IceCream() { Name = "Chocolate", Price = 10 });
+        //Try seedeing data to validate repository works fine
+        //private async Task Init() => await repository.Create(new IceCream() { Name = "Chocolate", Price = 10 });
 
 
         public IActionResult Index()

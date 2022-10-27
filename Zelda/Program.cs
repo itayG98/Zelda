@@ -1,17 +1,22 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Internal;
 using Zelda.Models;
 using Zelda.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
-
+var conn = builder.Configuration.GetConnectionString("DefaultConnectionString");
 // Add services to the container.
 builder.Services.AddDbContext<ZeldaContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionString"));
+    options.UseSqlServer(conn);
 }
 );
+
+
+/*
+ * builder.Services.AddDbContextFactory<ZeldaContext>(opt =>
+    opt.UseSqlServer($"Data Source={nameof(ZeldaContext.Database)}.db")
+    .EnableSensitiveDataLogging());
+*/
 
 builder.Services.AddScoped<IRepositoryBase<IceCream, int, ZeldaContext>, IceCreamRepository>();
 builder.Services.AddScoped<IRepositoryBase<Syrop, int, ZeldaContext>, SyropRepository>();
