@@ -15,19 +15,6 @@ namespace Zelda.Controllers
             iceCreamRepository = iceCrem_repo;
             syropRepository = syrop_repo;
             toppingRepository = topping_repo;
-
-        }
-
-        public string GetMenu()
-        {
-            StringBuilder sb = new StringBuilder();
-            sb.AppendLine("Ice-Creams:");
-            iceCreamRepository.FindAll().Result.ToList().ForEach(x => sb.AppendLine(x.ToString()));
-            sb.AppendLine("Syrops:");
-            syropRepository.FindAll().Result.ToList().ForEach(x => sb.AppendLine(x.ToString()));
-            sb.AppendLine("Topping:");
-            toppingRepository.FindAll().Result.ToList().ForEach(x => sb.AppendLine(x.ToString()));
-            return sb.ToString();
         }
 
 

@@ -2,7 +2,7 @@
 
 namespace Zelda.Models
 {
-    public class IceCream : ICloneable
+    public class IceCream : ICloneable, IItem
     {
         [Key]
         [MinLength(7)]

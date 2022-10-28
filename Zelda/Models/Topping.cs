@@ -2,7 +2,7 @@
 
 namespace Zelda.Models
 {
-    public class Topping : ICloneable
+    public class Topping : ICloneable , IItem
     {
         [Key]
         public int ToppingID { get; set; }

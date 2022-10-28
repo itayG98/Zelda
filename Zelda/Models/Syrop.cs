@@ -2,7 +2,7 @@
 
 namespace Zelda.Models
 {
-    public class Syrop : ICloneable
+    public class Syrop : ICloneable, IItem
     {
         [Key]
         public int SyropID { get; set; }
