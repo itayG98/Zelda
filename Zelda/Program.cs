@@ -26,10 +26,10 @@ using (var scope = app.Services.CreateScope())
 }
 
 app.UseRouting();
-
+app.UseStaticFiles();
 app.UseEndpoints(endpoints =>
 {
-    endpoints.MapControllerRoute("Deafult", "{controller=Home}/{action=Index}/{id?}");
+    endpoints.MapControllerRoute("Deafult", "{controller=IceCream}/{action=Index}/{id?}");
 });
 
 app.Run(async (context) =>

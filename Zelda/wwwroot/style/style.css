@@ -1,0 +1,20 @@
+﻿:root {
+  --black: #000000;
+  --white: #ffffff;
+  --brown: #3b1e18;
+  --green: #41ad49;
+  --turqize-next-btn: #9cf5e1;
+  --sky-blue-btns: #55c2e8;
+  --light-sky-alert-background: #cff1f7;
+  --light-sky-backGround: #dff7f4;
+  --shallow-sky-fields: #8dcadf;
+  --grey: #707070;
+  --chaki: #c1cbb9;
+}
+
+html {
+    background-color : var(--light-sky-backGround);
+}
+nav {
+    color : var(--brown);
+}

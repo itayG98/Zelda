@@ -1,0 +1,11 @@
+﻿@using Zelda.Controllers
+@model IceCreamController
+
+@{
+    ViewData["Title"] = "Zelda Ice-Cream";
+}
+<link rel="stylesheet" href="~/style/style.css" asp-append-version="true" />
+
+<nav>@Model.GetMenu()</nav>
+
+

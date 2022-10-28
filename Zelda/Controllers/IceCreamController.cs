@@ -5,12 +5,12 @@ using Zelda.Repositories;
 
 namespace Zelda.Controllers
 {
-    public class HomeController : Controller
+    public class IceCreamController : Controller
     {
         private readonly IceCreamRepository iceCreamRepository; 
         private readonly SyropRepository syropRepository;
         private readonly ToppingRepository toppingRepository;
-        public HomeController(IceCreamRepository iceCrem_repo, SyropRepository syrop_repo,ToppingRepository topping_repo)
+        public IceCreamController(IceCreamRepository iceCrem_repo, SyropRepository syrop_repo,ToppingRepository topping_repo)
         {
             iceCreamRepository = iceCrem_repo;
             syropRepository = syrop_repo;
@@ -18,8 +18,7 @@ namespace Zelda.Controllers
 
         }
 
-
-        public string Index()
+        public string GetMenu()
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("Ice-Creams:");
@@ -28,8 +27,13 @@ namespace Zelda.Controllers
             syropRepository.FindAll().Result.ToList().ForEach(x => sb.AppendLine(x.ToString()));
             sb.AppendLine("Topping:");
             toppingRepository.FindAll().Result.ToList().ForEach(x => sb.AppendLine(x.ToString()));
-
             return sb.ToString();
+        }
+
+
+        public IActionResult Index()
+        {
+            return View(this);  
         }
     }
 }
