@@ -13,15 +13,16 @@
 }
 
 html {
+    margin-top : 0;
     background-color: var(--light-sky-backGround);
     color: var(--black);
 }
 
 nav {
+    margin : 0 0 2rem 0;
     color: var(--brown);
 }
 
-nav h3 {
-        display: inline-block;
+nav span {
         max-width: 33VH;
 }
