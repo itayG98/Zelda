@@ -13,16 +13,28 @@
 }
 
 html {
-    margin-top : 0;
+    margin: 0.2rem 0,5rem 0 0.5rem;
     background-color: var(--light-sky-backGround);
     color: var(--black);
 }
-
+body {
+    padding :0.5rem;
+}
 nav {
-    margin : 0 0 2rem 0;
+    display : flex;
+    justify-content :space-between;
+    margin: 0 0 2rem 0;
     color: var(--brown);
 }
-
-nav span {
+    nav div {
+        display : inline-blockl;
+        margin : 0.2rem 0 0 0;
+    }
+    nav div.header {
+        align-self: start;
         max-width: 33VH;
-}
+    }
+
+    nav div.Favicons {
+        align-self:end;
+    }
