@@ -1,8 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore.Metadata;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Zelda.Models
 {
-    public class Address : ICloneable
+    public class Address : ICloneable , IOrdersData
     {
         [Key]
         public int AddressID { get; set; }
