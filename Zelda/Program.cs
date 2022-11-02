@@ -6,7 +6,7 @@ using Zelda.ActionFilters;
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 builder.Services.AddTransient<IceCreamRepository>();
 builder.Services.AddTransient<SyropRepository>();
 builder.Services.AddTransient<ToppingRepository>();
