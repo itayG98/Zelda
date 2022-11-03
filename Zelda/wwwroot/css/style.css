@@ -38,6 +38,16 @@ nav {
     nav div.Favicons {
         align-self:end;
     }
+div.container {
+    margin : auto;
+    display :flex;
+    max-width : 75%;
+}
 div.header h2 {
     margin-top : 0;
+}
+img.main-photo {
+    margin : auto;
+    max-width: 65%;
+    border-radius: 70px;
 }
