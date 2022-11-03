@@ -17,29 +17,20 @@ public class ZeldaContext : DbContext
     public DbSet<Address> Addreses { get; set; }
 
 
-    //protected override void OnModelCreating(ModelBuilder modelBuilder)
-    //{
-    //    List<IceCream> iceCreams = new List<IceCream>() {
-    //     new IceCream() {Name="Chocolate Milk" , Price=6.5 ,ImgSrc="Default"},
-    //     new IceCream() {Name= "Yummy Vannila", Price=6 ,ImgSrc="Default"},
-    //     new IceCream() {Name= "Strawberry", Price=5, ImgSrc = "Default"},
-    //     new IceCream() {Name= "Juicy Lemon", Price=5, ImgSrc = "Default"}
-    //     };
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<IceCream>().HasData(
+         new IceCream() { IceCreamID = 1, Name = "Chocolate Milk", Price = 6.5, ImgSrc = "Default" },
+         new IceCream() { IceCreamID = 2, Name = "Yummy Vannila", Price = 6, ImgSrc = "Default" },
+         new IceCream() { IceCreamID = 3, Name = "Strawberry", Price = 5, ImgSrc = "Default" },
+         new IceCream() { IceCreamID = 4, Name = "Juicy Lemon", Price = 5, ImgSrc = "Default" });
 
-    //    List<Syrop> syrops = new List<Syrop>() {
-    //     new Syrop(){Name="Strawberry" ,ImgSrc="Default" },
-    //     new Syrop(){Name="Dark Chocolate",ImgSrc="Default" }
-    //    };
+        modelBuilder.Entity<Syrop>().HasData(
+        new Syrop() { SyropID = 1, Name = "Strawberry", ImgSrc = "Default" },
+         new Syrop() { SyropID = 2, Name = "Dark Chocolate", ImgSrc = "Default" });
 
-    //    List<Topping> topping = new List<Topping>() {
-    //     new Topping() {Name="Pecans",ImgSrc="Default" },
-    //     new Topping() {Name="Candies",ImgSrc="Default"}
-    //    };
-
-    //    IceCreams.AddRange(iceCreams);
-    //    Syrops.AddRange(syrops);
-    //    Toppings.AddRange(topping);
-    //    SaveChanges();
-    //    base.OnModelCreating(modelBuilder);
-    //}
+        modelBuilder.Entity<Topping>().HasData(
+         new Topping() { ToppingID = 1, Name = "Pecans", ImgSrc = "Default" },
+         new Topping() { ToppingID = 2, Name = "Candies", ImgSrc = "Default" });
+    }
 }
