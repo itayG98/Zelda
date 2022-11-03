@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.EntityFrameworkCore;
 using Zelda.Repositories;
 using Zelda.ActionFilters;
@@ -26,6 +25,8 @@ using (var scope = app.Services.CreateScope())
 {
     var context = scope.ServiceProvider.GetRequiredService<ZeldaContext>();
     context.Database.EnsureCreated();
+    context.Seed();
+    context.SaveChangesAsync();
 }
 
 app.UseRouting();
