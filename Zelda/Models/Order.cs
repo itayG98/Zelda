@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 
 namespace Zelda.Models
 {
-    public class Order : ICloneable , IOrdersData
+    public class Order : ICloneable , IOrderData
     {
         [Key]
         public Guid OrderID { get; set; }

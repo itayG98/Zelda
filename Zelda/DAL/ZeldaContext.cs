@@ -16,28 +16,30 @@ public class ZeldaContext : DbContext
     public DbSet<Costumer> Costumers { get; set; }
     public DbSet<Address> Addreses { get; set; }
 
-    internal void Seed()
-    {
-        List<IceCream> iceCreams = new List<IceCream>() {
-         new IceCream() {Name="Chocolate Milk" , Price=6.5 ,ImgSrc="Default"},
-         new IceCream() {Name= "Yummy Vannila", Price=6 ,ImgSrc="Default"},
-         new IceCream() {Name= "Strawberry", Price=5, ImgSrc = "Default"},
-         new IceCream() {Name= "Juicy Lemon", Price=5, ImgSrc = "Default"}
-         };
 
-        List<Syrop> syrops = new List<Syrop>() {
-         new Syrop(){Name="Strawberry" ,ImgSrc="Default" },
-         new Syrop(){Name="Dark Chocolate",ImgSrc="Default" }
-        };
+    //protected override void OnModelCreating(ModelBuilder modelBuilder)
+    //{
+    //    List<IceCream> iceCreams = new List<IceCream>() {
+    //     new IceCream() {Name="Chocolate Milk" , Price=6.5 ,ImgSrc="Default"},
+    //     new IceCream() {Name= "Yummy Vannila", Price=6 ,ImgSrc="Default"},
+    //     new IceCream() {Name= "Strawberry", Price=5, ImgSrc = "Default"},
+    //     new IceCream() {Name= "Juicy Lemon", Price=5, ImgSrc = "Default"}
+    //     };
 
-        List<Topping> topping = new List<Topping>() {
-         new Topping() {Name="Pecans",ImgSrc="Default" },
-         new Topping() {Name="Candies",ImgSrc="Default"}
-        };
+    //    List<Syrop> syrops = new List<Syrop>() {
+    //     new Syrop(){Name="Strawberry" ,ImgSrc="Default" },
+    //     new Syrop(){Name="Dark Chocolate",ImgSrc="Default" }
+    //    };
 
-        IceCreams.AddRange(iceCreams);
-        Syrops.AddRange(syrops);
-        Toppings.AddRange(topping);
-        SaveChanges();
-    }
+    //    List<Topping> topping = new List<Topping>() {
+    //     new Topping() {Name="Pecans",ImgSrc="Default" },
+    //     new Topping() {Name="Candies",ImgSrc="Default"}
+    //    };
+
+    //    IceCreams.AddRange(iceCreams);
+    //    Syrops.AddRange(syrops);
+    //    Toppings.AddRange(topping);
+    //    SaveChanges();
+    //    base.OnModelCreating(modelBuilder);
+    //}
 }

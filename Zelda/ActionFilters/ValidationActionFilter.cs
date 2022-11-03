@@ -9,7 +9,7 @@ namespace Zelda.ActionFilters
         public void OnActionExecuted(ActionExecutedContext context)
         {
             var MenuItems = context.RouteData.Values.OfType<IMenuItem>();
-            var OrderData = context.RouteData.Values.OfType<IOrdersData>();
+            var OrderData = context.RouteData.Values.OfType<IOrderData>();
             if (MenuItems.Any(p => p is null))
                 context.Result = new BadRequestObjectResult("Menu item null");
             if (OrderData.Any(p => p is null))

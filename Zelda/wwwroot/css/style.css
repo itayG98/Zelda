@@ -38,3 +38,6 @@ nav {
     nav div.Favicons {
         align-self:end;
     }
+div.header h2 {
+    margin-top : 0;
+}

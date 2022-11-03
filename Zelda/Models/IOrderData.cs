@@ -1,6 +1,6 @@
 ﻿namespace Zelda.Models
 {
-    public interface IOrdersData
+    public interface IOrderData
     {
     }
 }

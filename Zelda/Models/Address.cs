@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Zelda.Models
 {
-    public class Address : ICloneable , IOrdersData
+    public class Address : ICloneable , IOrderData
     {
         [Key]
         public int AddressID { get; set; }

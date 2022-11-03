@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Zelda.Models
 {
-    public class Costumer : IOrdersData
+    public class Costumer : IOrderData
     {
         [Key]
         [StringLength(9)]
