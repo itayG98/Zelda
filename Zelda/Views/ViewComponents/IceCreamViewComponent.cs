@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Zelda.Models;
 using Zelda.Repositories;
 
-namespace Zelda.Views.Shared.ViewComponents
+namespace Zelda.Views.ViewComponents
 {
     public class IceCreamViewComponent : ViewComponent
     {
@@ -9,6 +10,13 @@ namespace Zelda.Views.Shared.ViewComponents
         public IceCreamViewComponent(IceCreamRepository iceCreamRepository)
         {
             _iceCreamRepository = iceCreamRepository;
+        }
+
+        private IEnumerable<IceCream> FindAllIceCreams() =>  _iceCreamRepository.FindAll();
+
+        public IViewComponentResult Invoke()
+        {
+            return View(FindAllIceCreams());
         }
     }
 }

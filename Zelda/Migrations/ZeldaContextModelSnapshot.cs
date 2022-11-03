@@ -51,7 +51,7 @@ namespace Zelda.Migrations
 
                     b.HasKey("AddressID");
 
-                    b.ToTable("Addreses");
+                    b.ToTable("Addresses");
                 });
 
             modelBuilder.Entity("Zelda.Models.Costumer", b =>
@@ -65,6 +65,9 @@ namespace Zelda.Migrations
 
                     b.Property<DateTime>("BirthDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<int>("CostumerAdrressID")
+                        .HasColumnType("int");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
@@ -115,6 +118,36 @@ namespace Zelda.Migrations
                     b.HasKey("IceCreamID");
 
                     b.ToTable("IceCreams");
+
+                    b.HasData(
+                        new
+                        {
+                            IceCreamID = 1,
+                            ImgSrc = "Default",
+                            Name = "Chocolate Milk",
+                            Price = 6.5
+                        },
+                        new
+                        {
+                            IceCreamID = 2,
+                            ImgSrc = "Default",
+                            Name = "Yummy Vannila",
+                            Price = 6.0
+                        },
+                        new
+                        {
+                            IceCreamID = 3,
+                            ImgSrc = "Default",
+                            Name = "Strawberry",
+                            Price = 5.0
+                        },
+                        new
+                        {
+                            IceCreamID = 4,
+                            ImgSrc = "Default",
+                            Name = "Juicy Lemon",
+                            Price = 5.0
+                        });
                 });
 
             modelBuilder.Entity("Zelda.Models.Order", b =>
@@ -127,7 +160,7 @@ namespace Zelda.Migrations
                         .HasMaxLength(10)
                         .HasColumnType("nvarchar(10)");
 
-                    b.Property<int?>("AlternativeAddrresID")
+                    b.Property<int?>("AlternativeAdrressID")
                         .HasColumnType("int");
 
                     b.Property<string>("CostumerID")
@@ -148,6 +181,8 @@ namespace Zelda.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("OrderID");
+
+                    b.HasIndex("AlternativeAdrressID");
 
                     b.HasIndex("CostumerID");
 
@@ -182,6 +217,22 @@ namespace Zelda.Migrations
                     b.HasKey("SyropID");
 
                     b.ToTable("Syrops");
+
+                    b.HasData(
+                        new
+                        {
+                            SyropID = 1,
+                            ImgSrc = "Default",
+                            Name = "Strawberry",
+                            Price = 3.0
+                        },
+                        new
+                        {
+                            SyropID = 2,
+                            ImgSrc = "Default",
+                            Name = "Dark Chocolate",
+                            Price = 3.0
+                        });
                 });
 
             modelBuilder.Entity("Zelda.Models.Topping", b =>
@@ -206,21 +257,41 @@ namespace Zelda.Migrations
                     b.HasKey("ToppingID");
 
                     b.ToTable("Toppings");
+
+                    b.HasData(
+                        new
+                        {
+                            ToppingID = 1,
+                            ImgSrc = "Default",
+                            Name = "Pecans",
+                            Price = 3.0
+                        },
+                        new
+                        {
+                            ToppingID = 2,
+                            ImgSrc = "Default",
+                            Name = "Candies",
+                            Price = 3.0
+                        });
                 });
 
             modelBuilder.Entity("Zelda.Models.Costumer", b =>
                 {
-                    b.HasOne("Zelda.Models.Address", "Adrress")
+                    b.HasOne("Zelda.Models.Address", "CostumerAdrress")
                         .WithMany()
                         .HasForeignKey("AdrressID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Adrress");
+                    b.Navigation("CostumerAdrress");
                 });
 
             modelBuilder.Entity("Zelda.Models.Order", b =>
                 {
+                    b.HasOne("Zelda.Models.Address", "AlternativeAdrress")
+                        .WithMany()
+                        .HasForeignKey("AlternativeAdrressID");
+
                     b.HasOne("Zelda.Models.Costumer", "Costumer")
                         .WithMany()
                         .HasForeignKey("CostumerID")
@@ -244,6 +315,8 @@ namespace Zelda.Migrations
                         .HasForeignKey("ToppingID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("AlternativeAdrress");
 
                     b.Navigation("Costumer");
 

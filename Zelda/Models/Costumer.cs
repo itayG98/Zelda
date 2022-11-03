@@ -37,9 +37,9 @@ namespace Zelda.Models
         public string PhoneNumber { get; set; }
 
         [Required]
-        public int AdrressID { get; set; }
-        [ForeignKey("AdrressID")]
+        public virtual int CostumerAdrressID { get; set; }
         [Required]
-        public Address? Adrress { get; set; }
+        [ForeignKey("AdrressID")]
+        public virtual Address? CostumerAdrress { get; set; }
     }
 }

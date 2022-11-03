@@ -28,7 +28,9 @@
     <div class=".body-content">
         @RenderBody()
     </div>
-
+    <div>
+        @await Component.InvokeAsync("IceCream");
+    </div>
     <footer>
     </footer>
 </body>

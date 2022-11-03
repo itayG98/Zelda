@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Linq;
 using System.Linq.Expressions;
 using Zelda.Models;
 
@@ -12,38 +13,42 @@ namespace Zelda.Repositories
     /// <typeparam name="TDBContext">A class which inherit from EntityFrameWorkCore.DBContext</typeparam>
     public abstract class RepositoryBase<T, K, TDBContext> : IRepositoryBase<T, K, TDBContext> where T : class where TDBContext : DbContext
     {
-        protected  TDBContext DbContext { get; set; }
+        protected TDBContext DbContext { get; set; }
         public RepositoryBase(TDBContext dbContext)
         {
             DbContext = dbContext;
         }
 
         public async Task SaveAsync() => await DbContext.SaveChangesAsync();
-        public async Task Create(T entity)
+        public async Task CreateAsync(T entity)
         {
             await DbContext.Set<T>().AddAsync(entity);
             await SaveAsync();
         }
 
-        public async Task Delete(T entity)
+        public async Task DeleteAsync(T entity)
         {
             DbContext.Set<T>().Remove(entity);
             await SaveAsync();
         }
 
-        public async Task Update(T entity)
+        public async Task UpdateAsync(T entity)
         {
             DbContext.Set<T>().Update(entity);
             await SaveAsync();
         }
 
-        public async Task<T> Find(K id)
+        public async Task<T> FindAsync(K id)
          => await DbContext.Set<T>().FindAsync(id);
+        public T Find(K id) =>
+            DbContext.Set<T>().FirstOrDefault(x =>x.Equals(x));
 
-        public async Task<IEnumerable<T>> FindAll()
+        public async Task<IEnumerable<T>> FindAllAsync()
          => await DbContext.Set<T>().ToListAsync();
+        public IEnumerable<T> FindAll()
+         => DbContext.Set<T>().ToList();
 
-        public async Task<IEnumerable<T>> FindByCondition(Expression<Func<T, bool>> expression)
+        public async Task<IEnumerable<T>> FindByConditionAsync(Expression<Func<T, bool>> expression)
         => await DbContext.Set<T>().Where(expression).ToListAsync();
 
     }
