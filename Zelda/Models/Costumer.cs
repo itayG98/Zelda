@@ -9,7 +9,8 @@ namespace Zelda.Models
         [StringLength(9)]
         public string CustomerID { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="Please enter password between 6-12 charecters")]
+        [RegularExpression(".+")]
         [MinLength(6)][MaxLength(12)]
         [DataType(DataType.Password)]
         public string Password { get; set; }
