@@ -14,14 +14,16 @@ namespace Zelda.Models
         [MinLength(6)][MaxLength(12)]
         [DataType(DataType.Password)]
         public string Password { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Please enter between 3-25 charecters")]
         [MaxLength(25)]
         [MinLength(3)]
+        [RegularExpression("[A-Za-z\\s]*$")]
         [Display(Name ="First Name")]
         public string FirstName { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Please enter between 3-25 charecters")]
         [MaxLength(25)]
         [MinLength(3)]
+        [RegularExpression("[A-Za-z\\s]*$")]
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
