@@ -38,7 +38,7 @@ namespace Zelda.Models
 
         [ForeignKey("AlternativeAdrressID")]
         public virtual Address? AlternativeAdrress { get; set; }
-
+        [StringLength(11)]
         [RegularExpression("[0-9]{3}-[0-9]{7}$")]
         [Display(Name = "Phone Number")]
         [DataType(DataType.PhoneNumber)]
