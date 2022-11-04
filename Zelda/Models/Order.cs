@@ -34,12 +34,15 @@ namespace Zelda.Models
         [ForeignKey("ToppingID")]
         public virtual Topping? Top { get; set; }
 
-        [StringLength(10)]
-        public string? AdditionalPhoneNumber { get; set; }
         public virtual int? AlternativeAdrressID { get; set; }
 
         [ForeignKey("AlternativeAdrressID")]
         public virtual Address? AlternativeAdrress { get; set; }
+
+        [RegularExpression("[0-9]{3}-[0-9]{7}$")]
+        [Display(Name = "Phone Number")]
+        [DataType(DataType.PhoneNumber)]
+        public string? AdditionalPhoneNumber { get; set; }
 
 
 

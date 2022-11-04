@@ -5,7 +5,6 @@ namespace Zelda.Models
     public class IceCream : ICloneable, IMenuItem
     {
         [Key]
-        [MinLength(7)]
         public int IceCreamID { get; set; }
         [Required]
         public string? Name { get; set; }
