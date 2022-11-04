@@ -45,7 +45,7 @@ nav {
 
 div.container {
     margin: auto;
-    padding 1rem;
+    padding :1rem;
     display: flex;
     max-width: 75%;
     flex-wrap :wrap;
@@ -54,7 +54,11 @@ div.container {
 div.flex-item {
 
 }
-div.menu image {
+div .menu-image {
+    margin: auto;
+    width: 350px;
+    height: 350px;
+    object-fit: cover;
     border-radius: 100%;
 }
 

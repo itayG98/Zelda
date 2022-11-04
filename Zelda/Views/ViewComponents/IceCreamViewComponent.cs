@@ -4,19 +4,10 @@ using Zelda.Repositories;
 
 namespace Zelda.Views.ViewComponents
 {
-    public class IceCreamViewComponent : ViewComponent
+    public class IceCreamViewComponent : IMenuItemViewComponentBase<IceCream, int>
     {
-        private readonly IceCreamRepository _iceCreamRepository;
-        public IceCreamViewComponent(IceCreamRepository iceCreamRepository)
+        public IceCreamViewComponent(IceCreamRepository imenuItemRepository) : base(imenuItemRepository)
         {
-            _iceCreamRepository = iceCreamRepository;
-        }
-
-        private IEnumerable<IceCream> FindAllIceCreams() =>  _iceCreamRepository.FindAll();
-
-        public IViewComponentResult Invoke()
-        {
-            return View(FindAllIceCreams());
         }
     }
 }
