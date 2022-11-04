@@ -1,8 +1,8 @@
 ﻿@model IEnumerable<Zelda.Models.IceCream>
-<div class="menu">
+<div class="menu container">
     @foreach (var iceCream in Model)
     {
-        <div>
+        <div class="flex-item">
             <img class="menu-image" src="~/images/@iceCream.ImgSrc" alt="@iceCream.Name+Pictue"/>
         </div>
     }

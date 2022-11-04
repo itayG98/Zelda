@@ -13,13 +13,13 @@ namespace Zelda.Models.Attributes
             if (value is DateTime dateTime != default)
             {
                 int Years = (int)DateTime.Now.Subtract(dateTime).TotalDays / 365;
-                if (Years >= 135)
+                if (Years > 135)
                 {
-                    new ValidationResult("This is date is unvalid .Please specify earlier date");
+                    return new ValidationResult("This birthDate is unvalid .Please specify earlier date");
                 }
-                else if (Years >= 12)
+                else if (Years > 12)
                 {
-                    new ValidationResult("This is date is unvalid .Please specify a date afterwards");
+                    return new ValidationResult("This birthDate is unvalid .Please specify a date afterwards");
                 }
                 else
                     return ValidationResult.Success;

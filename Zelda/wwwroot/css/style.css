@@ -17,37 +17,53 @@ html {
     background-color: var(--light-sky-backGround);
     color: var(--black);
 }
+
 body {
-    padding :0.5rem;
+    padding: 0.5rem;
 }
+
 nav {
-    display : flex;
-    justify-content :space-between;
+    display: flex;
+    justify-content: space-between;
     margin: 0 0 2rem 0;
     color: var(--brown);
 }
+
     nav div {
-        display : inline-blockl;
-        margin : 0.2rem 0 0 0;
-    }
-    nav div.header {
-        align-self: start;
-        max-width: 33VH;
+        display: inline-blockl;
+        margin: 0.2rem 0 0 0;
     }
 
-    nav div.Favicons {
-        align-self:end;
-    }
+        nav div.header {
+            align-self: start;
+            max-width: 33VH;
+        }
+
+        nav div.Favicons {
+            align-self: end;
+        }
+
 div.container {
-    margin : auto;
-    display :flex;
-    max-width : 75%;
+    margin: auto;
+    padding 1rem;
+    display: flex;
+    max-width: 75%;
+    flex-wrap :wrap;
 }
+
+div.flex-item {
+
+}
+div.menu image {
+    border-radius: 100%;
+}
+
 div.header h2 {
-    margin-top : 0;
+    margin-top: 0;
 }
+
 img.main-photo {
-    margin : auto;
+    margin: auto;
     max-width: 65%;
     border-radius: 70px;
 }
