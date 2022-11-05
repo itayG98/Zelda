@@ -8,6 +8,7 @@ namespace Zelda.Models
     public class Order : ICloneable, IOrderData
     {
         [Key]
+        [Display(Name = "Order Code")]
         public Guid OrderID { get; set; }
 
         [Required]
@@ -22,7 +23,10 @@ namespace Zelda.Models
         [Required]
         [ForeignKey("OrderedIceCreamID")]
         public virtual IceCream? OrderedIceCream { get; set; }
-
+        [Required]
+        [Display(Name = "Ice Cream Weight")]
+        [Range(1,5)]
+        public int IceCreamWeight { get; set; }
         [Required]
         public virtual int? ToopingSyropID { get; set; }
         [Required]
