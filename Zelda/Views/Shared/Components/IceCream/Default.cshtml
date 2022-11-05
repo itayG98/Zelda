@@ -1,9 +1,14 @@
 ﻿@model IEnumerable<Zelda.Models.IMenuItem>
-<div class="menu container">
+<div class="menu container-row">
     @foreach (var menuItem in Model)
     {
+        <div class="container">
         <div class="flex-item container">
-            <img class="menu-image" src="~/images/@menuItem.ImgSrc" alt="@menuItem.Name+Pictue" />
+            <img class="menu-image" src="~/images/@menuItem.ImgSrc" alt="@menuItem.Name"/>
+        </div>
+        <div class="flex-item container">
+            <h3>@menuItem.Name</h3>
+        </div>
         </div>
     }
 </div>
