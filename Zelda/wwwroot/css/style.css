@@ -74,8 +74,8 @@ div.header h2 {
 
 img.main-photo {
     margin: auto;
-    max-width: 65%;
-    max-height: 50%;
+    max-width: 55vh;
+    max-height: 45vh;
     border-radius: 70px;
 }
 
@@ -95,6 +95,10 @@ fieldset {
     font-size : 0.5rem;
     margin-top: auto;
     border: none;
+}
+button a, a:visited, a:link {
+    text-decoration-line: none;
+    color: var(--white);
 }
 
 @media screen and (max-width: 1000px) {

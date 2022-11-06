@@ -1,4 +1,4 @@
- using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Zelda.Repositories;
 using Zelda.ActionFilters;
 
@@ -24,16 +24,18 @@ var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     var context = scope.ServiceProvider.GetRequiredService<ZeldaContext>();
- //   context.Database.EnsureDeleted(); //For ReSeedng the Database
+    //   context.Database.EnsureDeleted(); //For ReSeedng the Database
     context.Database.EnsureCreated();
 }
 
 app.UseRouting();
 app.UseStaticFiles();
+
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapDefaultControllerRoute();
-});
+}
+);
 
 app.Run(async (context) =>
 {

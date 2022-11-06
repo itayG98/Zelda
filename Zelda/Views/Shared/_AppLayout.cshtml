@@ -19,19 +19,14 @@
             <h2>Zelda's Ice-Cream</h2>
         </div>
         <div class="Favicons">
-        <span><img src="~/images/Home_SVG.svg" /></span>
-        <span><img src="~/images/Profile_SVG.svg"/> </span>
-        <span><img src="~/images/Cart_SVG.svg"/></span>
+            <span><img src="~/images/Home_SVG.svg" /></span>
+            <span><img src="~/images/Profile_SVG.svg" /> </span>
+            <span><img src="~/images/Cart_SVG.svg" /></span>
         </div>
     </nav>
 
     <div>
         @RenderBody()
-    </div>
-    <div class="ChangeAbleComponent">
-        @await Component.InvokeAsync("IceCream");
-        @await Component.InvokeAsync("Syrop");
-        @await Component.InvokeAsync("Topping");
     </div>
     <footer>
     </footer>
