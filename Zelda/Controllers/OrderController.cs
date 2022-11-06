@@ -6,6 +6,7 @@ namespace Zelda.Controllers
     {
         public IActionResult Index()
         {
+            ViewBag.Type = "IceCream";
             return View();
         }
     }

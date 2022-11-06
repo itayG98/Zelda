@@ -23,7 +23,7 @@ namespace Zelda.Controllers
         }  
         public IActionResult StartOrder()
         {
-            return RedirectToAction("Index", "Order", default);
+            return RedirectToAction("Index","Order");
         }
 
 
