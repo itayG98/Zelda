@@ -92,9 +92,11 @@ button {
 }
 
 fieldset {
-    font-size : 0.5rem;
+    font-size : 0.8rem;
+    font-weight : bolder;
     margin-top: auto;
     border: none;
+    color : var(--sky-blue-btns)
 }
 button a, a:visited, a:link {
     text-decoration-line: none;
