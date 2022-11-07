@@ -5,18 +5,20 @@
         <div class="container">
             <div class="flex-item">
                 <img class="menu-image" src="~/images/@menuItem.ImgSrc" alt="@menuItem.Name" />
-                <h4>@menuItem.Name</h4>
+
             </div>
-                <div class="container-row">
-                    <fieldset id="KilogramPicker">
-                        @for (int i = 1; i <= 5; i++)
-                        {
-                            <label>
-                                <span>@i KG</span>
-                                <input type="radio" value="@i" name="KilogramPicker">
-                            </label>
-                        }
-                    </fieldset>
+            <div class="container-row">
+                <h4>@menuItem.Name</h4>
+                <fieldset id="KilogramPicker">
+                    @for (int i = 1; i <= 5; i++)
+                    {
+                        <label>
+                            <span>@i KG</span>
+                            <input type="radio" value="@i" name="KilogramPicker">
+                        </label>
+                    }
+                    <br/>
+                </fieldset>
             </div>
         </div>
     }

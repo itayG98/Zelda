@@ -16,7 +16,7 @@ builder.Services.AddTransient<ValidationActionFilter>();
 
 builder.Services.AddDbContext<ZeldaContext>(options =>
 {
-    options.UseLazyLoadingProxies().UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionString"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionString"));
 }
 );
 
